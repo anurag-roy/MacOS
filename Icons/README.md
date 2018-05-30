@@ -4,6 +4,8 @@ Icons(Left-Right): Finder, AppStore, Safari, Mail, Contacts,Reminders, Ulysses, 
 
 [Guide used](http://hashbangstar.net/blog/changing-icons-in-el-capitan) 
 
+[Post for reference](https://www.reddit.com/r/mac/comments/7wzjw0/got_tired_of_the_same_look_of_macos_and_themed_my/)
+
 
 **DISCLAIMER: I DO NOT OWN ANY OF THE ICONS**
 
