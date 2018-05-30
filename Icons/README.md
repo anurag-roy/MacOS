@@ -1,9 +1,13 @@
-[Guide used](http://hashbangstar.net/blog/changing-icons-in-el-capitan) 
+![Screenshot](https://github.com/anuragroy11/MacOS/blob/master/Icons/SS1.png)
 
 Icons(Left-Right): Finder, AppStore, Safari, Mail, Contacts,Reminders, Ulysses, Preview, Photos, AppleMusic, Spotify, Atom, iTerm2, Eclipse, XCode, LightRoom, Photoshop
 
-**Icon Sources:** [DropBox Link](https://www.dropbox.com/s/nywb7plqebp875v/MacOS%20Icons.zip?dl=0)
+[Guide used](http://hashbangstar.net/blog/changing-icons-in-el-capitan) 
 
+
+
+
+**DISCLAIMER: I DO NOT OWN ANY OF THE ICONS**
 **Please consider checking out the Designers**
 
 [Glacier](https://glaciericons.com/): Very clean Icon Pack by Carlos & Seb
