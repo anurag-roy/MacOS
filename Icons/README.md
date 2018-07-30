@@ -33,6 +33,8 @@ Extra: Some miscellaneous icons I downloaded after scouring the internet.
 
 + Xcode: By [Carlos Melegrito](https://dribbble.com/shots/1620554-Jiro-s-Xcode)
 
++ Terminal: By [Riomar McCartney](https://dribbble.com/shots/4184290-Take-s-Terminal-Bomb)
+
 + Others are from http://macreplacementicons.com/
 
 MenuBar: Bartender
