@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Stardog
-export PATH="/usr/local/Cellar/stardog/7.1.2/bin:$PATH"
-export STARDOG_HOME="/Users/anurag/Developer/StardogHome"
+# export PATH="/usr/local/Cellar/stardog/7.1.2/bin:$PATH"
+# export STARDOG_HOME="/Users/anurag/Developer/StardogHome"
 
 # jEnv for managing different versions of Java
 export PATH="$HOME/.jenv/bin:$PATH"
@@ -114,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias wspdev="cd ~/Developer/2PiRad/wiredscore-platform/web/ && code-insiders . && ng serve"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -125,5 +126,11 @@ export PATH="/usr/local/sbin:$PATH"
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-fortune | cowsay -f small
+# fortune | cowsay -f small
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#Git remove all local feature branches
+alias gitClean="git branch | grep -v "master" | xargs git branch -D"
