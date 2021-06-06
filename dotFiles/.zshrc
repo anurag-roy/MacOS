@@ -21,11 +21,49 @@ export ZSH="/Users/anurag/.oh-my-zsh"
 # Path to brew installed Git instead of Apple-Git
 export PATH="/usr/local/git/bin:$PATH"
 
+# Go development 
+export GOPATH="${HOME}/.go" 
+export GOROOT="$(brew --prefix golang)/libexec" 
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="simple"
+ZSH_THEME="spaceship"
+
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  exec_time     # Execution time
+  char          # Prompt character
+)
+	
+# DIR
+SPACESHIP_DIR_TRUNC_REPO='false'
+SPACESHIP_DIR_PREFIX='' # disable directory prefix, cause it's not the first section
+SPACESHIP_DIR_TRUNC='0' # show only last directory	
+SPACESHIP_DIR_COLOR="green"
+
+# GIT
+# Disable git symbol
+# SPACESHIP_GIT_SYMBOL="\ue0a0 " # disable git prefix
+# SPACESHIP_GIT_BRANCH_PREFIX=" " # disable branch prefix too
+# Wrap git in `(...)`
+SPACESHIP_GIT_PREFIX=""
+SPACESHIP_GIT_SUFFIX=""
+SPACESHIP_GIT_BRANCH_SUFFIX="" # remove space after branch name
+SPACESHIP_GIT_BRANCH_COLOR="magenta"
+# Unwrap git status from `[...]`
+SPACESHIP_GIT_STATUS_PREFIX=" "
+SPACESHIP_GIT_STATUS_SUFFIX=" "
+SPACESHIP_GIT_STATUS_COLOR="magenta"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -85,7 +123,7 @@ ZSH_THEME="simple"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize osx)
+plugins=(git npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,7 +152,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ci="code-insiders"
 alias wspdev="cd ~/Developer/2PiRad/wiredscore-platform/web/ && code-insiders . && ng serve"
+
+dist() {
+	cd $1;
+	npm run build;
+	cd ..;
+	zip -r ./dist/$1.zip $1 -x "$1/node_modules/*" "$1/ui/*" "$1/.git/*" "$1/instruments.json";
+}
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -125,12 +171,14 @@ export PATH="/usr/local/sbin:$PATH"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# fortune | cowsay -f small
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #Git remove all local feature branches
-alias gitClean="git branch | grep -v "master" | xargs git branch -D"
+alias gitClean="git branch | grep -v "master" | xargs git branch -D && git remote prune origin"
+
+#Fortune, Cowsay
+fortune | cowsay -f tux
